@@ -37,13 +37,32 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
+    # Third-party
     'crispy_forms',
+    'allauth',
+    'allauth.account',
+    # Local
     'users_app.apps.UsersAppConfig',
     'pages_app',
 ]
 
 # django-crispy-forms
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+# django-allauth config
+LOGIN_REDIRECT_URL = 'home'
+ACCOUNT_LOGOUT_REDIRECT = 'home'
+ACCOUNT_SESSION_REMEMBER = True
+
+SITE_ID = 1
+
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+)
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -93,7 +112,10 @@ DATABASES = {
     'USER': 'postgres',
     'PASSWORD': 'postgres',
     'HOST': 'db',
-    'PORT': 5432
+    'PORT': 5432,
+    # 'OPTIONS': {
+    #         'options': '-c timezone=UTC',  # Ensure UTC timezone
+    #     }
     }
 }
 
@@ -122,13 +144,13 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
-
 USE_I18N = True
 
 USE_L10N = True
 
 USE_TZ = True
+
+TIME_ZONE = 'UTC'
 
 
 # Static files (CSS, JavaScript, Images)
