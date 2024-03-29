@@ -20,8 +20,8 @@ urlpatterns = [
     # For Django admin
     path('admin/', admin.site.urls),  
 
-    path('accounts/', include('django.contrib.auth.urls')),      # For user management(login, logout, etc)
-    path('accounts/', include('users_app.urls')),                # For user management(Signup)
+    # path('accounts/', include('django.contrib.auth.urls')),      # For user management(login, logout, etc)
+    # path('accounts/', include('users_app.urls')),                # For user management(Signup)
 
     # For user management
     path('accounts/', include('allauth.urls')),
