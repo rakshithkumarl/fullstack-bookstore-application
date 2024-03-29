@@ -113,9 +113,6 @@ DATABASES = {
     'PASSWORD': 'postgres',
     'HOST': 'db',
     'PORT': 5432,
-    # 'OPTIONS': {
-    #         'options': '-c timezone=UTC',  # Ensure UTC timezone
-    #     }
     }
 }
 
@@ -148,7 +145,7 @@ USE_I18N = True
 
 USE_L10N = True
 
-USE_TZ = True
+USE_TZ = False  # Changed to False to fix postgres connection error: database connection isn't set to UTC
 
 TIME_ZONE = 'UTC'
 
