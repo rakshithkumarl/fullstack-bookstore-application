@@ -66,7 +66,8 @@ AUTHENTICATION_BACKENDS = (
     'allauth.account.auth_backends.AuthenticationBackend',
 )
 
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend' # For sending email to console for testing
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend' # For sending email over smtp
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -170,3 +171,5 @@ AUTH_USER_MODEL = 'users_app.CustomUser'
 LOGIN_REDIRECT_URL = 'home'
 
 LOGOUT_REDIRECT_URL = 'home'
+
+DEFAULT_FROM_EMAIL = 'admin@djangobookstore.com'
