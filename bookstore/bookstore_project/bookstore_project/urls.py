@@ -27,5 +27,6 @@ urlpatterns = [
     path('accounts/', include('allauth.urls')),
 
     # For Local apps like pages_app
-    path('', include('pages_app.urls')),                         
+    path('', include('pages_app.urls')),
+    path('books/', include('books.urls'))                         
 ]
